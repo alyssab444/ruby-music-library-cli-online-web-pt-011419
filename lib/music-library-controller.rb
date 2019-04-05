@@ -36,11 +36,11 @@ require 'pry'
     Song.all.each_with_index {|song,index|puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
   end
 
-   def list_artists
+   def list_artist
     Artist.all.each {|artist| puts artist.name}
   end
 
-   def list_genres
+   def list_genre
     Genre.all.each {|genre| puts genre.name}
   end
 
