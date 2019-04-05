@@ -46,7 +46,7 @@ class MusicLibraryController
         puts "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
       end
 =end
-   #this gives you an array of song instances sorted by name alphabetically
+   
     songs_sorted_by_name = Song.all.sort_by do |song|
       song.name
     end
@@ -56,7 +56,7 @@ class MusicLibraryController
   end
 
   def list_artists
-    #prints all artists in the music library in a numbered list (alphabetized by artist name
+    
     songs_sorted_by_artist = Artist.all.sort_by do |artist| #returns an array of artists sorted by artist name
       artist.name
     end
@@ -66,7 +66,7 @@ class MusicLibraryController
   end
 
   def list_genres
-    #prints all genres in the music library in a numbered list (alphabetized by genre name)
+    
     songs_sorted_by_genre = Genre.all.sort_by do |genre|
       genre.name
     end
