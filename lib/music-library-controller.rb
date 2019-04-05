@@ -77,15 +77,15 @@ class MusicLibraryController
 
 
   def list_songs_by_artist
-    #prints all songs by a particular artist in a numbered list (alphabetized by song name)
+    
     puts "Please enter the name of an artist:"
     input = gets.chomp
     if artist = Artist.find_by_name(input) #find artist that matches input
-      #get the list of songs and collect a new list that is alphabetized by song name
+      
       songs_sorted_by_name = artist.songs.sort_by do |song|
         song.name
       end
-      #print the each item in the list
+      
       songs_sorted_by_name.each.with_index(1) do |song,index|
         puts "#{index}. #{song.name} - #{song.genre.name}"
       end
@@ -93,15 +93,15 @@ class MusicLibraryController
   end
 
   def list_songs_by_genre
-    #prints all songs by a particular genre in a numbered list (alphabetized by song name)
+    
     puts "Please enter the name of a genre:"
     input = gets.chomp
-    if genre = Genre.find_by_name(input) #find genre that matches input
-      #get the list of songs and collect a new list that is alphabetized by song name
+    if genre = Genre.find_by_name(input) 
+      
       songs_sorted_by_name = genre.songs.sort_by do |song|
         song.name
       end
-      #print the each item in he list
+      
       songs_sorted_by_name.each.with_index(1) do |song,index|
         puts "#{index}. #{song.artist.name} - #{song.name}"
       end
@@ -113,8 +113,7 @@ class MusicLibraryController
     list_of_songs =  Song.all.sort{ |a, b| a.name <=> b.name }
 
     input = gets.strip.to_i
-    #if (input > 0) && (input <= list_of_songs.size)
-    #if (input >= 1) && (input <= list_of_songs.size)
+    
     if (1..Song.all.length).include?(input)
       song = list_of_songs[input+2]
       puts "Playing #{song.name} by #{song.artist.name}"
